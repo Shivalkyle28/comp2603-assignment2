@@ -185,7 +185,49 @@ public class Sanctuary {
 
         return mostExpensive;
     }
+    
+    /**
+     * BONUS 45:
+     * Returns a formatted report of all animals that are:
+     *   - in "Critical" health, and
+     *   - have fewer than 3 recorded sightings.
+     *
+     * The report includes a header and the total number of endangered animals.
+     */
+    public String getEndangeredReport() {
+        // BONUS 45:
+        // Build the report using a StringBuilder.
+        StringBuilder report = new StringBuilder();
 
+        report.append("=== Endangered Animal Report ===\n");
+
+        int count = 0;
+
+        // Check every animal in the sanctuary.
+        for (Animal animal : animals) {
+
+            // Animal must be in Critical condition.
+            if (animal.getHealthStatus().equals("Critical")) {
+
+                // Only Trackable animals have sighting logs.
+                if (animal instanceof Trackable) {
+
+                    Trackable trackable = (Trackable) animal;
+
+                    // Animal must have fewer than 3 sightings.
+                    if (trackable.getSightingCount() < 3) {
+                        report.append(animal.toString()).append("\n");
+                        count++;
+                    }
+                }
+            }
+        }
+
+        // Add the total number of endangered animals.
+        report.append("Total endangered animals: ").append(count);
+
+        return report.toString();
+    }
     /**
      * Transfers an animal to another sanctuary.
      * If the animal does not implement Relocatable, the transfer fails:
