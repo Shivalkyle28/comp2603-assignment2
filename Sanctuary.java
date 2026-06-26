@@ -84,6 +84,26 @@ public class Sanctuary {
     }
 
     /**
+     * BONUS 47:
+     * Finds and returns the animal with the specified ID.
+     * Returns null if no animal with that ID exists.
+     */
+    public Animal findAnimalById(int id) {
+
+        // BONUS 47:
+        // Search through every animal in the sanctuary.
+        for (Animal animal : animals) {
+
+            // Check whether this animal has the requested ID.
+            if (animal.getAnimalId() == id) {
+                return animal;
+            }
+        }
+
+        // No matching animal was found.
+        return null;
+    }
+    /**
      * TODO M5: Implement getAnimalCount
      */
     public int getAnimalCount() {
