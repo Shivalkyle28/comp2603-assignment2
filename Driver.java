@@ -116,5 +116,10 @@ public class Driver {
         System.out.println("=== Updated food budgets ===");
         System.out.printf("%s: $%.2f TTD%n", caroni.getName(), caroni.getDailyFoodBudget());
         System.out.printf("%s: $%.2f TTD%n", blueLagoon.getName(), blueLagoon.getDailyFoodBudget());
+
+        //Endangered Report
+        System.out.println("=== Endangered Report ===");
+        System.out.println(caroni.getEndangeredReport());
+        System.out.println(blueLagoon.getEndangeredReport());
     }
 }
